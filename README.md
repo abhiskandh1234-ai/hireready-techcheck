@@ -104,7 +104,21 @@ The AI can return:
 - Correct input-device verification
 - Background application checks
 - Escalation guidance
+## Product Preview
 
+### Candidate-facing landing page
+
+[![HireReady TechCheck landing page](hireready-homepage.png)](https://hireready-techcheck.onrender.com)
+
+A professional pre-interview readiness workflow with browser-based diagnostics, AI-assisted troubleshooting, and helpdesk escalation.
+
+### Interview Readiness Dashboard
+
+![HireReady TechCheck readiness dashboard](hireready-techcheck-dashboard.png)
+
+The candidate workspace runs six baseline checks across internet connectivity, camera, microphone, browser, device, and display, then summarizes the results into a readiness score.
+
+> **Live Demo:** https://hireready-techcheck.onrender.com
 ## Ticket Priority Logic
 
 Priority considers both interview urgency and AI severity.
