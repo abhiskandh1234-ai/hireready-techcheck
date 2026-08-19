@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HireReady TechCheck V7 Professional</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<main class="shell">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">UNOFFICIAL CONCEPT PROTOTYPE · V7</p>
+      <h1>HireReady TechCheck</h1>
+      <p class="subtitle">Professional candidate readiness + real AI troubleshooting + helpdesk analytics.</p>
+    </div>
+    <div id="userArea" class="user-area hidden">
+      <span id="userLabel"></span>
+      <span id="aiBadge" class="status-badge">AI status…</span>
+      <button id="logoutBtn" class="secondary">Logout</button>
+    </div>
+  </header>
+
+
+  <section id="landingPanel" class="landing-panel">
+    <div class="landing-copy">
+      <p class="eyebrow">WHITE-LABEL PRODUCT CONCEPT</p>
+      <h2>Prevent technical interview failures before they happen.</h2>
+      <p>One workflow for candidate system checks, Gemini troubleshooting, support escalation, and helpdesk analytics.</p>
+      <div class="landing-chips"><span>System Readiness</span><span>Real Gemini AI</span><span>Smart Tickets</span><span>Admin Analytics</span></div>
+    </div>
+    <div class="landing-metric">
+      <span>Demo readiness</span><strong>92%</strong><small>AI-assisted support available</small>
+    </div>
+  </section>
+
+  <section id="authView">
+    <div class="auth-grid">
+      <section class="panel">
+        <p class="eyebrow">CANDIDATE</p>
+        <h2>Create account</h2>
+        <div class="form">
+          <label>Full name<input id="regName" placeholder="Your name"></label>
+          <label>Email<input id="regEmail" type="email" placeholder="you@example.com"></label>
+          <label>Password<input id="regPassword" type="password" placeholder="Minimum 8 characters"></label>
+          <button id="registerBtn">Register & continue</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="eyebrow">LOGIN</p>
+        <h2>Candidate / Admin login</h2>
+        <div class="form">
+          <label>Email<input id="loginEmail" type="email" placeholder="you@example.com"></label>
+          <label>Password<input id="loginPassword" type="password"></label>
+          <button id="loginBtn">Login</button>
+        </div>
+        <div class="demo-admin">
+          <strong>Local demo admin</strong>
+          <code>admin@hireready.local</code>
+          <code>HireReady@123</code>
+        </div>
+      </section>
+    </div>
+    <p id="authMessage" class="message hidden"></p>
+  </section>
+
+  <section id="candidateView" class="hidden">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">CANDIDATE WORKSPACE</p>
+        <h2>Pre-interview system check</h2>
+        <p>Run your system checks, then let Gemini analyze any remaining technical problem.</p>
+      </div>
+      <div class="score-card">
+        <span>Readiness score</span>
+        <strong id="score">--</strong>
+        <small id="scoreText">Run checks to begin</small>
+      </div>
+    </section>
+
+    <section class="actions">
+      <button id="runAllBtn">Run all checks</button>
+      <button id="myTicketsBtn" class="secondary">My tickets</button>
+    </section>
+
+    <section class="checks">
+      <article class="check-card" id="internetCard"><div>🌐</div><h3>Internet</h3><p id="internetStatus">Not checked</p><small id="internetDetail">Checks browser connectivity.</small></article>
+      <article class="check-card" id="cameraCard"><div>📷</div><h3>Camera</h3><p id="cameraStatus">Not checked</p><small id="cameraDetail">Checks browser camera access.</small></article>
+      <article class="check-card" id="micCard"><div>🎙️</div><h3>Microphone</h3><p id="micStatus">Not checked</p><small id="micDetail">Checks browser microphone access.</small></article>
+      <article class="check-card" id="browserCard"><div>🧭</div><h3>Browser</h3><p id="browserStatus">Not checked</p><small id="browserDetail">Checks browser baseline.</small></article>
+      <article class="check-card" id="deviceCard"><div>💻</div><h3>Device</h3><p id="deviceStatus">Not checked</p><small id="deviceDetail">Checks browser-reported hardware info.</small></article>
+      <article class="check-card" id="screenCard"><div>🖥️</div><h3>Display</h3><p id="screenStatus">Not checked</p><small id="screenDetail">Checks display resolution.</small></article>
+    </section>
+
+    <section class="panel row-panel">
+      <div><h2>Readiness recommendation</h2><p id="recommendation">Run checks to get a recommendation.</p></div>
+      <button id="copyReportBtn" class="secondary">Copy report</button>
+    </section>
+
+    <section class="panel ai-panel">
+      <div class="ai-heading">
+        <div>
+          <p class="eyebrow">REAL GEMINI AI</p>
+          <h2>AI Troubleshooter</h2>
+          <p>Describe the problem naturally. The backend sends only this troubleshooting context to Gemini.</p>
+        </div>
+        <span id="modelLabel" class="model-label"></span>
+      </div>
+
+      <div class="form">
+        <label>Interview starts in
+          <select id="aiInterviewMinutes">
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="60" selected>1 hour</option>
+            <option value="180">3 hours</option>
+            <option value="1440">More than 3 hours</option>
+          </select>
+        </label>
+        <label>Technical problem
+          <textarea id="aiIssue" rows="5" placeholder="Example: The recruiter can hear system audio but cannot hear my voice in Chrome. My mic works in Windows Sound settings."></textarea>
+        </label>
+        <button id="askAiBtn">Analyze with AI</button>
+      </div>
+
+      <p id="aiMessage" class="message hidden"></p>
+
+      <div id="aiResult" class="ai-result hidden">
+        <div class="result-grid">
+          <article><span>Category</span><strong id="aiCategory"></strong></article>
+          <article><span>Priority</span><strong id="aiPriority"></strong></article>
+        </div>
+        <h3>Likely cause</h3>
+        <p id="aiCause"></p>
+        <h3>AI troubleshooting steps</h3>
+        <ol id="aiSteps"></ol>
+        <h3>Escalation guidance</h3>
+        <p id="aiEscalation"></p>
+        <button id="aiTicketBtn">Create ticket from AI analysis</button>
+      </div>
+    </section>
+
+    <section id="ticketPanel" class="panel hidden">
+      <p class="eyebrow">AI-ASSISTED SUPPORT ESCALATION</p>
+      <h2>Create support ticket</h2>
+      <div class="form two-col">
+        <label>Interview starts in
+          <select id="ticketMinutes">
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="60" selected>1 hour</option>
+            <option value="180">3 hours</option>
+            <option value="1440">More than 3 hours</option>
+          </select>
+        </label>
+        <label>Category<input id="ticketCategory"></label>
+      </div>
+      <label>Issue description<textarea id="ticketDescription" rows="4"></textarea></label>
+      <label>AI summary<textarea id="ticketAiSummary" rows="3" readonly></textarea></label>
+      <button id="submitTicketBtn">Submit to helpdesk</button>
+      <p id="ticketMessage" class="message hidden"></p>
+    </section>
+
+    <section id="myTicketsPanel" class="panel hidden">
+      <h2>My support tickets</h2>
+      <div id="myTicketsList"></div>
+    </section>
+  </section>
+
+  <section id="adminView" class="hidden">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">ADMIN / HELPDESK</p>
+        <h2>Support Dashboard</h2>
+        <p>AI-assisted tickets stored in SQLite and managed through FastAPI.</p>
+      </div>
+    </section>
+
+    <section class="stats stats-six">
+      <article><span>Total</span><strong id="statTotal">0</strong></article>
+      <article><span>Open</span><strong id="statOpen">0</strong></article>
+      <article><span>High priority</span><strong id="statHigh">0</strong></article>
+      <article><span>Resolved</span><strong id="statResolved">0</strong></article>
+      <article><span>Resolution rate</span><strong id="statResolution">0%</strong></article>
+      <article><span>Avg readiness</span><strong id="statReadiness">—</strong></article>
+    </section>
+
+    <section class="analytics-grid">
+      <article class="panel analytics-card"><p class="eyebrow">ISSUE MIX</p><h2>Tickets by category</h2><div id="categoryBars" class="bar-list"></div></article>
+      <article class="panel analytics-card"><p class="eyebrow">PRIORITY MIX</p><h2>Ticket urgency</h2><div id="priorityBars" class="bar-list"></div></article>
+    </section>
+
+    <section class="panel">
+      <div class="row-panel admin-toolbar">
+        <div><h2>Support Queue</h2><p>Search, filter, resolve, and export AI-assisted support tickets.</p></div>
+        <div class="filter-row">
+          <input id="filterSearch" placeholder="Search ticket / candidate">
+          <select id="filterStatus"><option value="">All status</option><option>Open</option><option>Resolved</option></select>
+          <select id="filterPriority"><option value="">All priority</option><option>High</option><option>Medium</option><option>Low</option></select>
+          <button id="applyFiltersBtn" class="secondary">Apply</button>
+          <button id="exportBtn" class="secondary">Export CSV</button>
+          <button id="refreshAdminBtn" class="secondary">Refresh</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Ticket</th><th>Candidate</th><th>Issue</th><th>Priority</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="adminTicketBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
