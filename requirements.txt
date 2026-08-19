@@ -1,3 +1,5 @@
 fastapi
 uvicorn
 google-genai
+SQLAlchemy>=2.0
+psycopg[binary]>=3.2

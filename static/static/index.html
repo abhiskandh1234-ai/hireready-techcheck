@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="HireReady TechCheck — AI-assisted technical readiness and support for virtual interviews.">
+  <title>HireReady TechCheck | AI Technical Readiness</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="HireReady TechCheck home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 28 28" fill="none"><path d="M7 5.5v17M21 5.5v17M7 14h14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="21" cy="7" r="2.5" fill="currentColor"/></svg>
+        </span>
+        <span class="brand-copy"><strong>HireReady</strong><small>TechCheck</small></span>
+      </a>
+
+      <div class="topbar-meta">
+        <span class="prototype-pill"><i></i> Independent portfolio prototype</span>
+        <div id="userArea" class="user-area hidden">
+          <span id="aiBadge" class="status-badge"><i></i> AI status…</span>
+          <span id="userLabel" class="user-label"></span>
+          <button id="logoutBtn" class="btn btn-ghost btn-small">Log out</button>
+        </div>
+      </div>
+    </header>
+
+    <section id="landingPanel" class="landing-panel">
+      <div class="landing-copy">
+        <div class="hero-kicker"><span class="spark">✦</span> AI-assisted interview readiness</div>
+        <h1>Walk into every virtual interview <span>technically ready.</span></h1>
+        <p class="hero-lede">Run essential device checks, troubleshoot technical issues with AI, and escalate unresolved problems through one focused support workflow.</p>
+        <div class="hero-actions">
+          <a href="#authView" class="btn btn-primary">Start a free TechCheck <span>→</span></a>
+          <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
+        </div>
+        <div class="trust-row">
+          <span><b>✓</b> Browser-based checks</span>
+          <span><b>✓</b> AI-guided troubleshooting</span>
+          <span><b>✓</b> Helpdesk escalation</span>
+        </div>
+      </div>
+
+      <div class="product-preview" aria-label="Product preview">
+        <div class="preview-top">
+          <div><span class="preview-label">READINESS OVERVIEW</span><h3>System health</h3></div>
+          <span class="live-pill"><i></i> Live</span>
+        </div>
+        <div class="preview-score-row">
+          <div class="preview-ring"><span>96<small>%</small></span></div>
+          <div class="preview-summary"><strong>Ready to join</strong><p>Your core interview setup looks healthy.</p></div>
+        </div>
+        <div class="preview-checks">
+          <div><span class="mini-icon">↗</span><p>Internet<small>Stable connection</small></p><b class="ok-dot">Ready</b></div>
+          <div><span class="mini-icon">◉</span><p>Camera<small>Permission granted</small></p><b class="ok-dot">Ready</b></div>
+          <div><span class="mini-icon">⌁</span><p>Microphone<small>Input detected</small></p><b class="ok-dot">Ready</b></div>
+        </div>
+        <div class="preview-ai"><span class="ai-orb">✦</span><div><b>AI Support Assistant</b><small>Available for troubleshooting</small></div><span class="arrow-chip">→</span></div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="feature-strip">
+      <article><span>01</span><div><strong>Check your setup</strong><small>Camera, mic, browser, network, device and display.</small></div></article>
+      <article><span>02</span><div><strong>Fix issues with AI</strong><small>Get practical, safe troubleshooting steps in seconds.</small></div></article>
+      <article><span>03</span><div><strong>Escalate when needed</strong><small>Create a structured support ticket with context attached.</small></div></article>
+    </section>
+
+    <section id="authView" class="auth-section">
+      <div class="section-heading">
+        <div><span class="section-kicker">GET STARTED</span><h2>Your interview support workspace</h2></div>
+        <p>Create a candidate account or sign in to continue your readiness check.</p>
+      </div>
+
+      <div class="auth-grid">
+        <section class="panel auth-card primary-auth">
+          <div class="auth-icon">+</div>
+          <span class="section-kicker">NEW CANDIDATE</span>
+          <h2>Create your account</h2>
+          <p class="muted">Set up your private candidate workspace in under a minute.</p>
+          <div class="form">
+            <label>Full name<input id="regName" autocomplete="name" placeholder="e.g. Alex Johnson"></label>
+            <label>Email address<input id="regEmail" autocomplete="email" type="email" placeholder="you@example.com"></label>
+            <label>Password<input id="regPassword" autocomplete="new-password" type="password" placeholder="Minimum 8 characters"></label>
+            <button id="registerBtn" class="btn btn-primary btn-block">Create account <span>→</span></button>
+          </div>
+        </section>
+
+        <section class="panel auth-card">
+          <div class="auth-icon lock-icon">⌁</div>
+          <span class="section-kicker">WELCOME BACK</span>
+          <h2>Sign in</h2>
+          <p class="muted">Candidate and authorized admin accounts use the same secure sign-in.</p>
+          <div class="form">
+            <label>Email address<input id="loginEmail" autocomplete="email" type="email" placeholder="you@example.com"></label>
+            <label>Password<input id="loginPassword" autocomplete="current-password" type="password" placeholder="Enter your password"></label>
+            <button id="loginBtn" class="btn btn-dark btn-block">Sign in <span>→</span></button>
+          </div>
+          <div class="security-note"><span>⌾</span><p><strong>Secure configuration</strong><small>Credentials and API secrets are stored server-side using environment variables.</small></p></div>
+        </section>
+      </div>
+      <p id="authMessage" class="message hidden"></p>
+    </section>
+
+    <section id="candidateView" class="hidden workspace">
+      <section class="workspace-header">
+        <div>
+          <span class="section-kicker">CANDIDATE WORKSPACE</span>
+          <h1>Interview readiness center</h1>
+          <p>Complete your baseline checks first, then use AI Support for anything that still needs attention.</p>
+        </div>
+        <div class="workspace-actions">
+          <button id="myTicketsBtn" class="btn btn-ghost">Support tickets</button>
+          <button id="runAllBtn" class="btn btn-primary">Run full TechCheck <span>→</span></button>
+        </div>
+      </section>
+
+      <section class="readiness-overview panel">
+        <div class="score-ring-wrap">
+          <div class="score-ring" id="scoreRing"><div><strong id="score">--</strong><small>READINESS</small></div></div>
+        </div>
+        <div class="readiness-copy">
+          <span class="section-kicker">CURRENT STATUS</span>
+          <h2 id="scoreText">Run checks to begin</h2>
+          <p id="recommendation">We’ll test six essentials used in most virtual interview environments.</p>
+          <div class="overview-meta"><span><i class="dot dot-green"></i> 6 automated checks</span><span><i class="dot dot-blue"></i> AI assistance available</span></div>
+        </div>
+        <button id="copyReportBtn" class="btn btn-ghost">Copy diagnostic report</button>
+      </section>
+
+      <div class="section-heading compact-heading">
+        <div><span class="section-kicker">SYSTEM DIAGNOSTICS</span><h2>Core readiness checks</h2></div>
+        <p>Permission prompts may appear for camera and microphone testing.</p>
+      </div>
+
+      <section class="checks">
+        <article class="check-card" id="internetCard">
+          <div class="check-top"><span class="check-icon">↗</span><span class="check-state">Pending</span></div>
+          <h3>Internet</h3><p id="internetStatus">Not checked</p><small id="internetDetail">Browser connectivity and available network telemetry.</small>
+        </article>
+        <article class="check-card" id="cameraCard">
+          <div class="check-top"><span class="check-icon">◉</span><span class="check-state">Pending</span></div>
+          <h3>Camera</h3><p id="cameraStatus">Not checked</p><small id="cameraDetail">Browser camera permission and video input detection.</small>
+        </article>
+        <article class="check-card" id="micCard">
+          <div class="check-top"><span class="check-icon">⌁</span><span class="check-state">Pending</span></div>
+          <h3>Microphone</h3><p id="micStatus">Not checked</p><small id="micDetail">Browser microphone permission and audio input detection.</small>
+        </article>
+        <article class="check-card" id="browserCard">
+          <div class="check-top"><span class="check-icon">◇</span><span class="check-state">Pending</span></div>
+          <h3>Browser</h3><p id="browserStatus">Not checked</p><small id="browserDetail">Secure context and modern browser baseline.</small>
+        </article>
+        <article class="check-card" id="deviceCard">
+          <div class="check-top"><span class="check-icon">▣</span><span class="check-state">Pending</span></div>
+          <h3>Device</h3><p id="deviceStatus">Not checked</p><small id="deviceDetail">Browser-reported compute and memory information.</small>
+        </article>
+        <article class="check-card" id="screenCard">
+          <div class="check-top"><span class="check-icon">▭</span><span class="check-state">Pending</span></div>
+          <h3>Display</h3><p id="screenStatus">Not checked</p><small id="screenDetail">Screen resolution suitability for interview tools.</small>
+        </article>
+      </section>
+
+      <section class="panel ai-panel">
+        <div class="ai-layout">
+          <div class="ai-intro">
+            <div class="ai-brand-row"><span class="ai-orb large">✦</span><div><span class="section-kicker">AI SUPPORT ASSISTANT</span><h2>Resolve technical issues faster</h2></div></div>
+            <p>Describe what is happening in plain language. HireReady sends the troubleshooting context to the configured Gemini model and returns structured support guidance.</p>
+            <div class="ai-points"><span>✓ Likely cause analysis</span><span>✓ Step-by-step remediation</span><span>✓ Priority & escalation guidance</span></div>
+            <span id="modelLabel" class="model-label"></span>
+          </div>
+
+          <div class="ai-form-card">
+            <div class="form">
+              <label>How soon does your interview start?
+                <select id="aiInterviewMinutes">
+                  <option value="15">In 15 minutes</option><option value="30">In 30 minutes</option><option value="60" selected>In 1 hour</option><option value="180">In 3 hours</option><option value="1440">More than 3 hours</option>
+                </select>
+              </label>
+              <label>What’s going wrong?
+                <textarea id="aiIssue" rows="5" placeholder="Example: My microphone works in Windows, but the recruiter cannot hear me in Chrome..."></textarea>
+              </label>
+              <button id="askAiBtn" class="btn btn-dark btn-block">Analyze with AI <span>✦</span></button>
+            </div>
+            <p id="aiMessage" class="message hidden"></p>
+          </div>
+        </div>
+
+        <div id="aiResult" class="ai-result hidden">
+          <div class="result-head"><div><span class="section-kicker">AI ANALYSIS</span><h3>Recommended troubleshooting plan</h3></div><span class="result-ready">Generated safely</span></div>
+          <div class="result-grid">
+            <article><span>Issue category</span><strong id="aiCategory"></strong></article>
+            <article><span>Support priority</span><strong id="aiPriority"></strong></article>
+          </div>
+          <div class="result-section"><span class="result-number">01</span><div><h3>Likely cause</h3><p id="aiCause"></p></div></div>
+          <div class="result-section"><span class="result-number">02</span><div><h3>Troubleshooting steps</h3><ol id="aiSteps"></ol></div></div>
+          <div class="result-section"><span class="result-number">03</span><div><h3>Escalation guidance</h3><p id="aiEscalation"></p></div></div>
+          <div class="result-cta"><div><strong>Still blocked?</strong><small>Convert this analysis into a structured helpdesk ticket.</small></div><button id="aiTicketBtn" class="btn btn-primary">Create support ticket <span>→</span></button></div>
+        </div>
+      </section>
+
+      <section id="ticketPanel" class="panel hidden ticket-panel">
+        <div class="section-heading compact-heading"><div><span class="section-kicker">SUPPORT ESCALATION</span><h2>Create a helpdesk ticket</h2></div><p>Your AI summary and readiness context are attached automatically.</p></div>
+        <div class="form two-col">
+          <label>Interview starts in<select id="ticketMinutes"><option value="15">15 minutes</option><option value="30">30 minutes</option><option value="60" selected>1 hour</option><option value="180">3 hours</option><option value="1440">More than 3 hours</option></select></label>
+          <label>Category<input id="ticketCategory"></label>
+        </div>
+        <div class="form">
+          <label>Issue description<textarea id="ticketDescription" rows="4"></textarea></label>
+          <label>AI support summary<textarea id="ticketAiSummary" rows="3" readonly></textarea></label>
+          <button id="submitTicketBtn" class="btn btn-primary">Submit to helpdesk <span>→</span></button>
+        </div>
+        <p id="ticketMessage" class="message hidden"></p>
+      </section>
+
+      <section id="myTicketsPanel" class="panel hidden">
+        <div class="section-heading compact-heading"><div><span class="section-kicker">MY SUPPORT</span><h2>Support tickets</h2></div><p>Track previously submitted technical issues.</p></div>
+        <div id="myTicketsList" class="ticket-list"></div>
+      </section>
+    </section>
+
+    <section id="adminView" class="hidden workspace admin-workspace">
+      <section class="workspace-header admin-header">
+        <div><span class="section-kicker">ADMIN / HELPDESK</span><h1>Support operations</h1><p>Monitor AI-assisted tickets, service urgency, and resolution performance.</p></div>
+        <div class="db-pill"><span class="db-icon">◫</span><div><small>DATA STORE</small><strong>Neon PostgreSQL</strong></div></div>
+      </section>
+
+      <section class="stats stats-six">
+        <article><span>Total tickets</span><strong id="statTotal">0</strong><small>All recorded</small></article>
+        <article><span>Open queue</span><strong id="statOpen">0</strong><small>Needs action</small></article>
+        <article class="stat-alert"><span>High priority</span><strong id="statHigh">0</strong><small>Urgent cases</small></article>
+        <article><span>Resolved</span><strong id="statResolved">0</strong><small>Completed</small></article>
+        <article><span>Resolution rate</span><strong id="statResolution">0%</strong><small>Overall</small></article>
+        <article><span>Avg readiness</span><strong id="statReadiness">—</strong><small>Candidate score</small></article>
+      </section>
+
+      <section class="analytics-grid">
+        <article class="panel analytics-card"><span class="section-kicker">ISSUE MIX</span><div class="analytics-title"><h2>Tickets by category</h2><span>Live data</span></div><div id="categoryBars" class="bar-list"></div></article>
+        <article class="panel analytics-card"><span class="section-kicker">PRIORITY MIX</span><div class="analytics-title"><h2>Ticket urgency</h2><span>Live data</span></div><div id="priorityBars" class="bar-list"></div></article>
+      </section>
+
+      <section class="panel queue-panel">
+        <div class="admin-toolbar">
+          <div><span class="section-kicker">HELPDESK QUEUE</span><h2>Support tickets</h2><p>Search, filter, resolve and export candidate support incidents.</p></div>
+          <div class="toolbar-actions"><button id="exportBtn" class="btn btn-ghost">Export CSV</button><button id="refreshAdminBtn" class="btn btn-dark">Refresh</button></div>
+        </div>
+        <div class="filter-row">
+          <div class="search-wrap"><span>⌕</span><input id="filterSearch" placeholder="Search ticket or candidate"></div>
+          <select id="filterStatus"><option value="">All statuses</option><option>Open</option><option>Resolved</option></select>
+          <select id="filterPriority"><option value="">All priorities</option><option>High</option><option>Medium</option><option>Low</option></select>
+          <button id="applyFiltersBtn" class="btn btn-ghost">Apply filters</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Ticket</th><th>Candidate</th><th>Issue</th><th>Priority</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody id="adminTicketBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <footer>
+      <div class="footer-brand"><span class="brand-mark small-mark">H</span><div><strong>HireReady TechCheck</strong><small>AI-assisted technical readiness & support</small></div></div>
+      <p>Independent portfolio prototype for educational and demonstration purposes. Not affiliated with any employer or recruitment platform.</p>
+      <span>V11 · Professional UI</span>
+    </footer>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
